@@ -1,7 +1,7 @@
 import AppKit
 import Foundation
 
-func foo() {
+func requestAccessibilityIfNeeded() {
     let options: [NSString: Bool] = [
         kAXTrustedCheckOptionPrompt.takeUnretainedValue(): true
     ]

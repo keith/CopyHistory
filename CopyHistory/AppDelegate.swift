@@ -21,7 +21,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        foo()
+        requestAccessibilityIfNeeded()
         self.listener.start()
 
         HotKey.withKey("v", mods: ["CTRL", "CMD"]) { [weak self] in
