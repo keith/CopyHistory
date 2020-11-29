@@ -2,6 +2,7 @@
 #import "HotKey.h"
 
 @interface HotKeyTranslator : NSObject
+
 @end
 
 @implementation HotKeyTranslator
@@ -152,6 +153,9 @@ static UInt32 HotKeyLastCarbonID;
 
 @property EventHotKeyRef carbonHotKey;
 @property UInt32 internalRegistrationNumber;
+@property NSString *key;
+@property NSArray *mods;
+@property (copy) dispatch_block_t handler;
 
 @end
 
@@ -171,7 +175,8 @@ static OSStatus HotKeyCarbonCallback(__unused EventHandlerCallRef inHandlerCallR
                       &eventID);
 
     HotKey *hotkey = HotKeys[@(eventID.id)];
-    return hotkey.handler() ? noErr : eventNotHandledErr;
+    hotkey.handler();
+    return noErr;
 }
 
 + (void)setup {
@@ -188,12 +193,12 @@ static OSStatus HotKeyCarbonCallback(__unused EventHandlerCallRef inHandlerCallR
     });
 }
 
-+ (HotKey *)withKey:(NSString *)key mods:(NSArray *)mods handler:(CONHotKeyHandler)handler {
++ (void)withKey:(NSString *)key mods:(NSArray *)mods handler:(dispatch_block_t)handler {
     HotKey *hotkey = [HotKey new];
     hotkey.key = key;
     hotkey.mods = mods;
     hotkey.handler = handler;
-    return hotkey;
+    [hotkey enable];
 }
 
 - (BOOL)enable {
@@ -216,14 +221,8 @@ static OSStatus HotKeyCarbonCallback(__unused EventHandlerCallRef inHandlerCallR
     return status == noErr;
 }
 
-- (void)disable {
-    if (self.internalRegistrationNumber == 0) {
-        return;
-    }
-
+- (void)dealloc {
     UnregisterEventHotKey(self.carbonHotKey);
-    [HotKeys removeObjectForKey:@(self.internalRegistrationNumber)];
-    self.internalRegistrationNumber = 0;
 }
 
 @end

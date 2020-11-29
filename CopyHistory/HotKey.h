@@ -1,25 +1,7 @@
-@import JavaScriptCore;
+@import Foundation;
 
-typedef BOOL(^CONHotKeyHandler)(void);
-@class HotKey;
+@interface HotKey : NSObject
 
-@protocol HotKeyJSExport <JSExport>
-
-@property NSString *key;
-@property NSArray *mods;
-@property (copy) CONHotKeyHandler handler;
-
-+ (HotKey *)withKey:(NSString *)key mods:(NSArray *)mods handler:(CONHotKeyHandler)handler;
-
-- (BOOL)enable;
-- (void)disable;
-
-@end
-
-@interface HotKey : NSObject <HotKeyJSExport>
-
-@property NSString *key;
-@property NSArray *mods;
-@property (copy) CONHotKeyHandler handler;
++ (void)withKey:(NSString *)key mods:(NSArray *)mods handler:(dispatch_block_t)handler;
 
 @end

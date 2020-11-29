@@ -26,7 +26,6 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 
         HotKey.withKey("v", mods: ["CTRL", "CMD"]) { [weak self] in
             self?.showMenu()
-            return true
-        }?.enable()
+        }
     }
 }
