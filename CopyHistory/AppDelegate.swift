@@ -23,9 +23,25 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         self.listener.start()
 
+        let contentView = ContentView { [weak self] in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+
+            }
+        }
+
         HotKey.withKey("c", mods: ["CTRL", "CMD"]) { [weak self] in
             self?.showMenu()
             return true
         }?.enable()
+
+        window = NSWindow(
+            contentRect: NSRect(x: 0, y: 0, width: 480, height: 300),
+            styleMask: [.titled, .closable, .miniaturizable, .resizable, .fullSizeContentView],
+            backing: .buffered, defer: false)
+        window.isReleasedWhenClosed = false
+        window.center()
+        window.setFrameAutosaveName("Main Window")
+        window.contentView = NSHostingView(rootView: contentView)
+        window.makeKeyAndOrderFront(nil)
     }
 }
