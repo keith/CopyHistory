@@ -8,20 +8,31 @@
 
 /* Begin PBXBuildFile section */
 		C28188772572FAD6003C352C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28188762572FAD6003C352C /* AppDelegate.swift */; };
-		C28188792572FAD6003C352C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28188782572FAD6003C352C /* ContentView.swift */; };
 		C281887B2572FAD7003C352C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C281887A2572FAD7003C352C /* Assets.xcassets */; };
-		C281887E2572FAD7003C352C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C281887D2572FAD7003C352C /* Preview Assets.xcassets */; };
 		C28188812572FAD7003C352C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C281887F2572FAD7003C352C /* Main.storyboard */; };
+		C281888C2572FB2F003C352C /* Listener.swift in Sources */ = {isa = PBXBuildFile; fileRef = C281888B2572FB2F003C352C /* Listener.swift */; };
+		C281889225733C51003C352C /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = C281889125733C51003C352C /* Menu.swift */; };
+		C28188952573489A003C352C /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28188942573489A003C352C /* MenuItem.swift */; };
+		C2818898257351B5003C352C /* PasteboardItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2818897257351B5003C352C /* PasteboardItem.swift */; };
+		C281889C25735243003C352C /* HotKey.m in Sources */ = {isa = PBXBuildFile; fileRef = C281889A25735243003C352C /* HotKey.m */; };
+		C28188B325735AEC003C352C /* Accessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28188B225735AEC003C352C /* Accessibility.swift */; };
+		C28188B725735DEB003C352C /* Paste.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28188B625735DEB003C352C /* Paste.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		C28188732572FAD6003C352C /* CopyHistory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CopyHistory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C28188762572FAD6003C352C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C28188782572FAD6003C352C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		C281887A2572FAD7003C352C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		C281887D2572FAD7003C352C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C28188802572FAD7003C352C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C28188822572FAD7003C352C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C281888B2572FB2F003C352C /* Listener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Listener.swift; sourceTree = "<group>"; };
+		C281889125733C51003C352C /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
+		C28188942573489A003C352C /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
+		C2818897257351B5003C352C /* PasteboardItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasteboardItem.swift; sourceTree = "<group>"; };
+		C281889A25735243003C352C /* HotKey.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HotKey.m; sourceTree = "<group>"; };
+		C281889B25735243003C352C /* HotKey.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HotKey.h; sourceTree = "<group>"; };
+		C28188B225735AEC003C352C /* Accessibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Accessibility.swift; sourceTree = "<group>"; };
+		C28188B625735DEB003C352C /* Paste.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Paste.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,22 +65,28 @@
 		C28188752572FAD6003C352C /* CopyHistory */ = {
 			isa = PBXGroup;
 			children = (
+				C28188B225735AEC003C352C /* Accessibility.swift */,
+				C28188B625735DEB003C352C /* Paste.swift */,
 				C28188762572FAD6003C352C /* AppDelegate.swift */,
-				C28188782572FAD6003C352C /* ContentView.swift */,
-				C281887A2572FAD7003C352C /* Assets.xcassets */,
-				C281887F2572FAD7003C352C /* Main.storyboard */,
-				C28188822572FAD7003C352C /* Info.plist */,
-				C281887C2572FAD7003C352C /* Preview Content */,
+				C281889B25735243003C352C /* HotKey.h */,
+				C281889A25735243003C352C /* HotKey.m */,
+				C281888B2572FB2F003C352C /* Listener.swift */,
+				C281889125733C51003C352C /* Menu.swift */,
+				C28188942573489A003C352C /* MenuItem.swift */,
+				C2818897257351B5003C352C /* PasteboardItem.swift */,
+				C28188AE2573552E003C352C /* Resources */,
 			);
 			path = CopyHistory;
 			sourceTree = "<group>";
 		};
-		C281887C2572FAD7003C352C /* Preview Content */ = {
+		C28188AE2573552E003C352C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				C281887D2572FAD7003C352C /* Preview Assets.xcassets */,
+				C281887A2572FAD7003C352C /* Assets.xcassets */,
+				C281887F2572FAD7003C352C /* Main.storyboard */,
+				C28188822572FAD7003C352C /* Info.plist */,
 			);
-			path = "Preview Content";
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -130,7 +147,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C28188812572FAD7003C352C /* Main.storyboard in Resources */,
-				C281887E2572FAD7003C352C /* Preview Assets.xcassets in Resources */,
 				C281887B2572FAD7003C352C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -142,8 +158,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C28188792572FAD6003C352C /* ContentView.swift in Sources */,
+				C281889C25735243003C352C /* HotKey.m in Sources */,
+				C28188B325735AEC003C352C /* Accessibility.swift in Sources */,
+				C281888C2572FB2F003C352C /* Listener.swift in Sources */,
+				C28188B725735DEB003C352C /* Paste.swift in Sources */,
+				C281889225733C51003C352C /* Menu.swift in Sources */,
 				C28188772572FAD6003C352C /* AppDelegate.swift in Sources */,
+				C28188952573489A003C352C /* MenuItem.swift in Sources */,
+				C2818898257351B5003C352C /* PasteboardItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,16 +305,15 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_ASSET_PATHS = "\"CopyHistory/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = CopyHistory/Info.plist;
+				INFOPLIST_FILE = CopyHistory/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = com.smileykeith.CopyHistory;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = CopyHistory/HotKey.h;
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -304,16 +325,15 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_ASSET_PATHS = "\"CopyHistory/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = CopyHistory/Info.plist;
+				INFOPLIST_FILE = CopyHistory/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = com.smileykeith.CopyHistory;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = CopyHistory/HotKey.h;
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
