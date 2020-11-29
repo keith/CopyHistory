@@ -40,7 +40,7 @@ final class Listener {
         let pasteboard = NSPasteboard.general
         pasteboard.clearContents()
         item.write(to: pasteboard)
-        // TODO: actually force the paste? or require cmd+v manually? maybe weird but maybe better in some cases?
+        sendPaste()
     }
 
     func clearItems() {

@@ -16,6 +16,7 @@
 		C2818898257351B5003C352C /* PasteboardItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2818897257351B5003C352C /* PasteboardItem.swift */; };
 		C281889C25735243003C352C /* HotKey.m in Sources */ = {isa = PBXBuildFile; fileRef = C281889A25735243003C352C /* HotKey.m */; };
 		C28188B325735AEC003C352C /* Accessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28188B225735AEC003C352C /* Accessibility.swift */; };
+		C28188B725735DEB003C352C /* Paste.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28188B625735DEB003C352C /* Paste.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		C281889A25735243003C352C /* HotKey.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HotKey.m; sourceTree = "<group>"; };
 		C281889B25735243003C352C /* HotKey.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HotKey.h; sourceTree = "<group>"; };
 		C28188B225735AEC003C352C /* Accessibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Accessibility.swift; sourceTree = "<group>"; };
+		C28188B625735DEB003C352C /* Paste.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Paste.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 			isa = PBXGroup;
 			children = (
 				C28188B225735AEC003C352C /* Accessibility.swift */,
+				C28188B625735DEB003C352C /* Paste.swift */,
 				C28188762572FAD6003C352C /* AppDelegate.swift */,
 				C281889B25735243003C352C /* HotKey.h */,
 				C281889A25735243003C352C /* HotKey.m */,
@@ -158,6 +161,7 @@
 				C281889C25735243003C352C /* HotKey.m in Sources */,
 				C28188B325735AEC003C352C /* Accessibility.swift in Sources */,
 				C281888C2572FB2F003C352C /* Listener.swift in Sources */,
+				C28188B725735DEB003C352C /* Paste.swift in Sources */,
 				C281889225733C51003C352C /* Menu.swift in Sources */,
 				C28188772572FAD6003C352C /* AppDelegate.swift in Sources */,
 				C28188952573489A003C352C /* MenuItem.swift in Sources */,
