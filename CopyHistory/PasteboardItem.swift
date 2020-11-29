@@ -23,16 +23,12 @@ final class PasteboardItem: CustomDebugStringConvertible, MenuItem {
                 self.fileURL = pasteboard.string(forType: .fileURL)
             case .rtf:
                 self.rtf = pasteboard.string(forType: .rtf)
-//            case .rtfd:
-//            case .tabularText:
             case .fileURLs:
                 self.fileURLs = pasteboard.propertyList(forType: .fileURLs) as? [String]
             default:
                 break
             }
         }
-
-        print(self)
     }
 
     func write(to pasteboard: NSPasteboard) {
@@ -68,11 +64,10 @@ Pasteboard item contents:
 
 string: '\(self.string ?? "<none>")'
 URL: '\(self.URL ?? "<none>")'
+rtf length: '\(self.rtf?.count ?? 0)'
 fileURL: '\(self.fileURL ?? "<none>")'
 fileURLs: '\(self.fileURLs ?? [])'
 
 """
-
-        // rtf: '\(self.rtf ?? "<none>")'
     }
 }
