@@ -20,6 +20,11 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         self.menu = menu
     }
 
+    func applicationShouldHandleReopen(_ sender: NSApplication, hasVisibleWindows flag: Bool) -> Bool {
+        self.showMenu()
+        return true
+    }
+
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         requestAccessibilityIfNeeded()
         self.listener.start()
