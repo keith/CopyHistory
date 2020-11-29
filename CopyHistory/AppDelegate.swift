@@ -1,39 +1,31 @@
-//
-//  AppDelegate.swift
-//  CopyHistory
-//
-//  Created by Keith Smiley on 11/28/20.
-//
-
 import Cocoa
 import SwiftUI
 
 @main
-class AppDelegate: NSObject, NSApplicationDelegate {
+final class AppDelegate: NSObject, NSApplicationDelegate {
+    private let listener = Listener()
+    private var window: NSWindow!
+    private var menu: Menu<PasteboardItem>?
 
-    var window: NSWindow!
+    private func showMenu() {
+        let menu = Menu(items: self.listener.items, itemHit: { [weak self] item in
+            self?.listener.paste(item: item)
+        }, clear: { [weak self] in
+            self?.listener.clearItems()
+        }, didClose: { [weak self] in
+            self?.menu = nil
+        })
 
+        menu.show()
+        self.menu = menu
+    }
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        // Create the SwiftUI view that provides the window contents.
-        let contentView = ContentView()
+        self.listener.start()
 
-        // Create the window and set the content view.
-        window = NSWindow(
-            contentRect: NSRect(x: 0, y: 0, width: 480, height: 300),
-            styleMask: [.titled, .closable, .miniaturizable, .resizable, .fullSizeContentView],
-            backing: .buffered, defer: false)
-        window.isReleasedWhenClosed = false
-        window.center()
-        window.setFrameAutosaveName("Main Window")
-        window.contentView = NSHostingView(rootView: contentView)
-        window.makeKeyAndOrderFront(nil)
+        HotKey.withKey("c", mods: ["CTRL", "CMD"]) { [weak self] in
+            self?.showMenu()
+            return true
+        }?.enable()
     }
-
-    func applicationWillTerminate(_ aNotification: Notification) {
-        // Insert code here to tear down your application
-    }
-
-
 }
-
