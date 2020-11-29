@@ -21,9 +21,10 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
+        foo()
         self.listener.start()
 
-        HotKey.withKey("c", mods: ["CTRL", "CMD"]) { [weak self] in
+        HotKey.withKey("v", mods: ["CTRL", "CMD"]) { [weak self] in
             self?.showMenu()
             return true
         }?.enable()
