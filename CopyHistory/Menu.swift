@@ -1,6 +1,9 @@
 import AppKit
 import Foundation
 
+private let inlineSize = 9
+private let bucketSize = 10
+
 private class MenuDelegate: NSObject, NSMenuDelegate {
     private let didClose: () -> Void
 
@@ -18,9 +21,10 @@ private extension Array {
     func bucket(size: Int) -> [[Element]] {
         var array = self
         var buckets = [[Element]]()
-        while array.count > 0 {
-            buckets.append(Array(array.prefix(count)))
-            array.removeFirst(Swift.min(size, array.count))
+        while !array.isEmpty {
+            let bucketCount = Swift.min(10, array.count)
+            buckets.append(Array(array[0..<bucketCount]))
+            array.removeFirst(bucketCount)
         }
 
         return buckets
@@ -51,16 +55,17 @@ final class Menu<T: MenuItem> {
         menu.delegate = self.menuDelegate
 
         var initialIndex = 9
-        let initialItems = Array(items.prefix(9))
-        items.removeFirst(min(items.count, 9))
+        let initialItems = Array(items.prefix(inlineSize))
+        items.removeFirst(min(items.count, inlineSize))
         for (index, item) in initialItems.enumerated() {
             menu.addItem(self.menuItem(for: item, index: index + 1))
         }
 
         initialIndex += 1
-        let buckets = items.bucket(size: 10)
+        let buckets = items.bucket(size: bucketSize)
         for bucket in buckets {
-            let bucketTitle = "\(initialIndex) - \(initialIndex + 10)"
+            let bucketTitle = "\(initialIndex) - \(initialIndex + bucketSize)"
+            initialIndex += bucketSize
             let submenuItem = NSMenuItem()
             submenuItem.title = bucketTitle
             let submenu = NSMenu()
