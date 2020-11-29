@@ -26,7 +26,10 @@ final class Listener {
         }
 
         self.previousCount = newCount
-        let newItem = PasteboardItem(pasteboard: pasteboard, types: pasteboard.types ?? [])
+        let newItem = PasteboardItem(
+            pasteboard: pasteboard,
+            types: pasteboard.types ?? []
+        )
         self.items.insert(newItem, at: 0)
         if self.items.count > 100 {
             self.items.removeLast()

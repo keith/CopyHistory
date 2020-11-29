@@ -73,7 +73,11 @@ final class Menu<T: MenuItem> {
         }
 
         menu.addItem(NSMenuItem.separator())
-        let clearItem = menu.addItem(withTitle: "Clear History", action: #selector(Menu.clearHistory), keyEquivalent: "")
+        let clearItem = menu.addItem(
+            withTitle: "Clear History",
+            action: #selector(Menu.clearHistory),
+            keyEquivalent: ""
+        )
         clearItem.target = self
         // TODO: This does nothing, not a big deal
         clearItem.isEnabled = self.items.count > 0
