@@ -86,6 +86,14 @@ final class Menu<T: MenuItem> {
         clearItem.target = self
         // TODO: This does nothing, not a big deal
         clearItem.isEnabled = self.items.count > 0
+
+        let quitItem = menu.addItem(
+            withTitle: "Quit",
+            action: #selector(NSApp.terminate(_:)),
+            keyEquivalent: ""
+        )
+        quitItem.target = NSApp
+
         menu.popUp(positioning: nil, at: NSEvent.mouseLocation, in: nil)
         self.menu = menu
     }
