@@ -1,7 +1,7 @@
 import Cocoa
 import SwiftUI
 
-@main
+@NSApplicationMain
 final class AppDelegate: NSObject, NSApplicationDelegate {
     private let listener = Listener()
     private var window: NSWindow!
