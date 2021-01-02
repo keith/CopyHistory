@@ -5,6 +5,18 @@ menu invoked by CTRL+CMD+V.
 
 ![](screenshot.png)
 
+## Installation
+
+### Manually
+
+Download the [latest release](https://github.com/keith/CopyHistory/releases) and move it to `/Applications`
+
+### With homebrew
+
+```
+brew install --cask keith/formulae/copyhistory
+```
+
 ## Acknowledgements
 
 This workflow was born for me from [ClipMenu](http://www.clipmenu.com)
