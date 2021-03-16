@@ -15,6 +15,15 @@ private class MenuDelegate: NSObject, NSMenuDelegate {
     func menuDidClose(_ menu: NSMenu) {
         self.didClose()
     }
+
+    func confinementRect(for menu: NSMenu, on screen: NSScreen?) -> NSRect {
+        return NSRect(
+            x: NSEvent.mouseLocation.x,
+            y: NSEvent.mouseLocation.y - menu.size.height,
+            width: 300,
+            height: 5000 // Doing max makes AppKit ignore this value, but we don't care to bound it
+        )
+    }
 }
 
 private extension Array {
