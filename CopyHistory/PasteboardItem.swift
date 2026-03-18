@@ -55,7 +55,11 @@ final class PasteboardItem: CustomDebugStringConvertible, MenuItem {
 
     var title: String {
         // TODO: This really should be non-optional, not sure how
-        self.string ?? "<unknown>"
+        let value = self.string ?? "<unknown>"
+        if value.count > 200 {
+            return String(value.prefix(200)) + "…"
+        }
+        return value
     }
 
     var debugDescription: String {
