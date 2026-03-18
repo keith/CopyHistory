@@ -11,6 +11,8 @@ final class PasteboardItem: CustomDebugStringConvertible, MenuItem {
     var fileURL: String?
     var rtf: String?
     var fileURLs: [String]?
+    var tiff: Data?
+    var png: Data?
 
     init(pasteboard: NSPasteboard, types: [NSPasteboard.PasteboardType]) {
         for type in types {
@@ -25,6 +27,10 @@ final class PasteboardItem: CustomDebugStringConvertible, MenuItem {
                 self.rtf = pasteboard.string(forType: .rtf)
             case .fileURLs:
                 self.fileURLs = pasteboard.propertyList(forType: .fileURLs) as? [String]
+            case .tiff:
+                self.tiff = pasteboard.data(forType: .tiff)
+            case .png:
+                self.png = pasteboard.data(forType: .png)
             default:
                 break
             }
@@ -51,15 +57,27 @@ final class PasteboardItem: CustomDebugStringConvertible, MenuItem {
         if let fileURLs = self.fileURLs {
             pasteboard.setPropertyList(fileURLs, forType: .fileURLs)
         }
+
+        if let tiff = self.tiff {
+            pasteboard.setData(tiff, forType: .tiff)
+        }
+
+        if let png = self.png {
+            pasteboard.setData(png, forType: .png)
+        }
     }
 
     var title: String {
-        // TODO: This really should be non-optional, not sure how
-        let value = self.string ?? "<unknown>"
-        if value.count > 200 {
-            return String(value.prefix(200)) + "…"
+        if let value = self.string {
+            if value.count > 200 {
+                return String(value.prefix(200)) + "…"
+            }
+            return value
         }
-        return value
+        if self.tiff != nil || self.png != nil {
+            return "<image>"
+        }
+        return "<unknown>"
     }
 
     var debugDescription: String {
