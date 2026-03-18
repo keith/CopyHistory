@@ -67,6 +67,28 @@ final class PasteboardItem: CustomDebugStringConvertible, MenuItem {
         }
     }
 
+    var image: NSImage? {
+        guard let data = self.tiff ?? self.png,
+              let full = NSImage(data: data) else {
+            return nil
+        }
+        let maxSize: CGFloat = 32
+        let originalSize = full.size
+        if originalSize.width == 0 || originalSize.height == 0 {
+            return nil
+        }
+        let scale = min(maxSize / originalSize.width, maxSize / originalSize.height, 1)
+        let newSize = NSSize(
+            width: originalSize.width * scale,
+            height: originalSize.height * scale
+        )
+        let thumbnail = NSImage(size: newSize)
+        thumbnail.lockFocus()
+        full.draw(in: NSRect(origin: .zero, size: newSize))
+        thumbnail.unlockFocus()
+        return thumbnail
+    }
+
     var title: String {
         if let value = self.string {
             if value.count > 200 {
@@ -75,7 +97,7 @@ final class PasteboardItem: CustomDebugStringConvertible, MenuItem {
             return value
         }
         if self.tiff != nil || self.png != nil {
-            return "<image>"
+            return ""
         }
         return "<unknown>"
     }

@@ -104,6 +104,7 @@ final class Menu<T: MenuItem> {
         menuItem.action = #selector(Menu.selected(_:))
         menuItem.keyEquivalent = keyEquivalent
         menuItem.title = item.title
+        menuItem.image = item.image
         menuItem.target = self
         menuItem.representedObject = item
         return menuItem
