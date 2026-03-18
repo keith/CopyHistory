@@ -30,6 +30,9 @@ final class Listener {
             pasteboard: pasteboard,
             types: pasteboard.types ?? []
         )
+        if let first = self.items.first, first.string != nil, first.string == newItem.string {
+            return
+        }
         self.items.insert(newItem, at: 0)
         if self.items.count > 100 {
             self.items.removeLast()
