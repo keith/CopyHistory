@@ -198,7 +198,8 @@ static OSStatus HotKeyCarbonCallback(__unused EventHandlerCallRef inHandlerCallR
     hotkey.key = key;
     hotkey.mods = mods;
     hotkey.handler = handler;
-    NSAssert([hotkey enable], @"Failed to setup hotkey");
+    BOOL success = [hotkey enable];
+    NSAssert(success, @"Failed to setup hotkey");
 }
 
 - (BOOL)enable {
